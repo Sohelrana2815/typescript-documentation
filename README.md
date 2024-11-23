@@ -1,6 +1,6 @@
 # TypeScript Documentation
 
-- prerequisities: Javascript
+- Prerequisites: Javascript
 
 ## Table of Contents
 
@@ -34,7 +34,7 @@
 
 What is TypeScript?
 
-- In a simple words, Additional Types (tuples, enum, interfaces, generics etc)  + JavaScript = TypeScript
+- In a simple words, Additional Types (tuples, enum, interfaces, generics etc) + JavaScript = TypeScript
 - It is a superset of JS
 - developed (2012) and maintained by Microsoft
 - we can use typeof to check data type
@@ -43,9 +43,9 @@ What is TypeScript?
 
 Why TypeScript?
 
-- JS Check types in run time while typescript add static typing to JS so we can handle errors before running the program. We can handle errors beofre running the program.
+- JS Check types in run time while typescript add static typing to JS so we can handle errors before running the program. We can handle errors before running the program.
 - increase readability and code quality
-- We can use it React, Vue, popular JS libraray Angular use TypeScript.
+- We can use it React, Vue, popular JS library Angular use TypeScript.
 - It can be used in both: client and server side.
 - Intellisense IDE Support while coding: code completion, content assist and code hinting
 
@@ -68,7 +68,7 @@ function addNumbers(num1, num2) {
 }
 
 addNumbers(20, 30);
-addNumbers(20, '30');
+addNumbers(20, "30");
 
 // with typescript
 // without typescript
@@ -77,19 +77,19 @@ function addNumbers(num1: number, num2: number) {
 }
 
 addNumbers(20, 30); // no error
-addNumbers(20, '30'); // error
+addNumbers(20, "30"); // error
 
 // without typescript
 let x;
 x = 20; // correct
-x = 'anisul'; // correct
+x = "anisul"; // correct
 x = true; // correct
 x = [10, 20]; // correct
 
 // with typescript
 let x: number;
 x = 20; // correct
-x = '20'; // Not correct
+x = "20"; // Not correct
 x = true; // Not correct
 x = [10, 20]; // Not correct
 ```
@@ -103,7 +103,7 @@ Environment setup
 - Install node & typescript
 
   ```js
-      local installation: npm intsall typescript --save-dev
+      local installation: npm install typescript --save-dev
       Or
       global installation: npm install -g typescript
   ```
@@ -168,7 +168,7 @@ In TypeScript, you can use basic types to specify the type of variables, functio
 2. **string**: Represents a sequence of characters.
 
    ```typescript
-   let name: string = 'John';
+   let name: string = "John";
    ```
 
 3. **boolean**: Represents a true or false value.
@@ -181,7 +181,7 @@ In TypeScript, you can use basic types to specify the type of variables, functio
 
    ```typescript
    let data: any = 42;
-   data = 'Hello';
+   data = "Hello";
 
    let password: any;
    let passwords: any[];
@@ -191,7 +191,7 @@ In TypeScript, you can use basic types to specify the type of variables, functio
 
    ```typescript
    function logMessage(): void {
-     console.log('This is a log message.');
+     console.log("This is a log message.");
    }
    ```
 
@@ -215,7 +215,7 @@ These basic types provide a foundation for specifying the types of variables and
 - inferred Typing
 
   ```js
-  let userName = 'anis'; // data type inferred as string
+  let userName = "anis"; // data type inferred as string
   ```
 
 ### 1.3 Data Types: User defined
@@ -233,28 +233,28 @@ These basic types provide a foundation for specifying the types of variables and
      console.log(typeof userId);
    }
 
-   userIdDataType('123'); // no error
+   userIdDataType("123"); // no error
    userIdDataType(123); // no error
    // userIdDataType(true); // error
 
    const isEven = (num: number | string) => {
-     if (typeof num === 'number') {
+     if (typeof num === "number") {
        console.log(typeof num);
-       return num % 2 === 0 ? 'even' : 'odd';
+       return num % 2 === 0 ? "even" : "odd";
      } else {
        console.log(typeof num);
-       return Number(num) % 2 === 0 ? 'even' : 'odd';
+       return Number(num) % 2 === 0 ? "even" : "odd";
      }
    };
 
    console.log(isEven(32));
-   console.log(isEven('32'));
+   console.log(isEven("32"));
    ```
 
 2. **object**: Represents any non-primitive value.
 
    ```typescript
-   let person: object = { name: 'Alice', age: 30 };
+   let person: object = { name: "Alice", age: 30 };
 
    let user: {
      name: string;
@@ -262,28 +262,28 @@ These basic types provide a foundation for specifying the types of variables and
    };
 
    user = {
-     name: 'anisul islam',
+     name: "anisul islam",
      age: 32,
    };
 
    let names: object;
-   names = { name1: 'anis' };
+   names = { name1: "anis" };
    console.log(names);
 
    let users: object[];
    users = [];
 
    let user1: { userName: string; userId: number };
-   user1 = { userName: 'anis', userId: 101 };
+   user1 = { userName: "anis", userId: 101 };
    users.push(user1);
 
    let user2: { userName: string; userId: number };
-   user2 = { userName: 'rabu', userId: 102 };
+   user2 = { userName: "rabu", userId: 102 };
 
    users.push(user2);
 
    for (const key in users) {
-     console.log(users[key]['userName']);
+     console.log(users[key]["userName"]);
    }
    ```
 
@@ -298,7 +298,7 @@ These basic types provide a foundation for specifying the types of variables and
    // users = ["anis", "rabu", "pinky"];
 
    let users: Array<string>;
-   users = ['anis', 'rabu', 'pinky'];
+   users = ["anis", "rabu", "pinky"];
 
    // for (let index = 0; index < users.length; index++) {
    //   const element = users[index];
@@ -312,13 +312,13 @@ These basic types provide a foundation for specifying the types of variables and
    users.sort();
    console.log(users);
 
-   users.push('limon');
+   users.push("limon");
    console.log(users);
 
    users.pop();
    console.log(users);
 
-   users.unshift('milton');
+   users.unshift("milton");
    console.log(users);
 
    users.shift();
@@ -332,16 +332,16 @@ These basic types provide a foundation for specifying the types of variables and
 4. **tuple**: Represents an array with a fixed number of elements, each with a specific type.
 
    ```typescript
-   let employee: [string, number] = ['John Doe', 30];
+   let employee: [string, number] = ["John Doe", 30];
 
    let users: [number, String];
-   users = [101, 'anis'];
+   users = [101, "anis"];
 
    console.log(users);
    console.log(users[0]);
    console.log(users[1]);
 
-   users.push(102, 'sakib');
+   users.push(102, "sakib");
    console.log(users);
    ```
 
@@ -373,21 +373,21 @@ These basic types provide a foundation for specifying the types of variables and
 
    // string enum
    enum UserRequest {
-     ReadData = 'READ_DATA',
+     ReadData = "READ_DATA",
      // ReadData = 2,
-     SaveData = 'SAVE_DATA',
-     UpdateData = 'UPDATE_DATA',
+     SaveData = "SAVE_DATA",
+     UpdateData = "UPDATE_DATA",
    }
 
    console.log(UserRequest);
    console.log(UserRequest.ReadData);
    console.log(UserRequest.SaveData);
-   console.log(UserRequest['UpdateData']);
+   console.log(UserRequest["UpdateData"]);
 
    // Heterogeneous enum
    enum User {
      id = 101,
-     name = 'anisul',
+     name = "anisul",
    }
    ```
 
@@ -410,9 +410,9 @@ These basic types provide a foundation for specifying the types of variables and
 
    // Create an object that conforms to the intersection type
    const manager: ManagerWithEmployeeInfo = {
-     name: 'Alice',
-     role: 'Manager',
-     department: 'HR',
+     name: "Alice",
+     role: "Manager",
+     department: "HR",
      employeesManaged: 10,
    };
 
@@ -438,183 +438,183 @@ These basic types provide a foundation for specifying the types of variables and
    users = [];
 
    let user1: User;
-   user1 = { userName: 'anis', userId: 101 };
+   user1 = { userName: "anis", userId: 101 };
    users.push(user1);
 
    let user2: User;
-   user2 = { userName: 'rabu', userId: 102 };
+   user2 = { userName: "rabu", userId: 102 };
    users.push(user2);
 
    let user3: User;
-   user3 = { userName: 'lucky', userId: 103 };
+   user3 = { userName: "lucky", userId: 103 };
    users.push(user3);
 
    // console.log(users);
 
-   type RequestType = 'GET' | 'POST';
+   type RequestType = "GET" | "POST";
    let getRequest: RequestType;
-   getRequest = 'GET';
+   getRequest = "GET";
 
    function requestHandler(requestType: RequestType) {
      console.log(requestType);
    }
-   requestHandler('GET');
+   requestHandler("GET");
    ```
 
-8. **class Type OOP** - You can create class type as well. class can have constructor, properties, methods. create object  let objectName = new className()
+8. **class Type OOP** - You can create class type as well. class can have constructor, properties, methods. create object let objectName = new className()
 
-    - Class and constructor Example
+   - Class and constructor Example
 
-    ```js
-    class User {
-      // properties, methods, constructor
-      userName: string;
-      age: number;
+   ```js
+   class User {
+     // properties, methods, constructor
+     userName: string;
+     age: number;
 
-      constructor(userName: string, age: number) {
-        this.userName = userName;
-        this.age = age;
-      }
+     constructor(userName: string, age: number) {
+       this.userName = userName;
+       this.age = age;
+     }
 
-      display(): void {
-        console.log(`username: ${this.userName}, age: ${this.age}`);
-      }
-    }
+     display(): void {
+       console.log(`username: ${this.userName}, age: ${this.age}`);
+     }
+   }
 
-    let user1 = new User('Anisul Islam', 25);
-    user1.display();
+   let user1 = new User("Anisul Islam", 25);
+   user1.display();
 
-    let user2 = new User('Rabeya Islam', 31);
-    user2.display();
-    ```
+   let user2 = new User("Rabeya Islam", 31);
+   user2.display();
+   ```
 
-    - Inheritance: inheritance helps us to acquire properties of one class to another
+   - Inheritance: inheritance helps us to acquire properties of one class to another
 
-    ```js
-    class User {
-      userName: string;
-      age: number;
+   ```js
+   class User {
+     userName: string;
+     age: number;
 
-      constructor(userName: string, age: number) {
-        this.userName = userName;
-        this.age = age;
-      }
+     constructor(userName: string, age: number) {
+       this.userName = userName;
+       this.age = age;
+     }
 
-      display(): void {
-        console.log(`username: ${this.userName}, age: ${this.age}`);
-      }
-    }
+     display(): void {
+       console.log(`username: ${this.userName}, age: ${this.age}`);
+     }
+   }
 
-    class Student extends User {
-      studentId: number;
+   class Student extends User {
+     studentId: number;
 
-      constructor(userName: string, age: number, studentId: number) {
-        super(userName, age);
-        this.studentId = studentId;
-      }
-      display(): void {
-        console.log(
-          `username: ${this.userName}, age: ${this.age}, id: ${this.studentId}`
-        );
-      }
-    }
+     constructor(userName: string, age: number, studentId: number) {
+       super(userName, age);
+       this.studentId = studentId;
+     }
+     display(): void {
+       console.log(
+         `username: ${this.userName}, age: ${this.age}, id: ${this.studentId}`
+       );
+     }
+   }
 
-    let student1 = new Student('keya', 31, 1302020015);
-    student1.display();
+   let student1 = new Student("keya", 31, 1302020015);
+   student1.display();
 
-    let user1 = new User('Anisul Islam', 25);
-    user1.display();
+   let user1 = new User("Anisul Islam", 25);
+   user1.display();
 
-    // let user2 = new User("Rabeya Islam", 31);
-    // user2.display();
-    ```
+   // let user2 = new User("Rabeya Islam", 31);
+   // user2.display();
+   ```
 
-    - **Abstract class** - abstraction helps us to hide the implementation of something. class declared with abstract keyword. object can not be created from abstract class. if a class extends abstract class; it must inherit all the abstract methods
+   - **Abstract class** - abstraction helps us to hide the implementation of something. class declared with abstract keyword. object can not be created from abstract class. if a class extends abstract class; it must inherit all the abstract methods
 
-    ```js
-    abstract class User {
-      userName: string;
-      age: number;
+   ```js
+   abstract class User {
+     userName: string;
+     age: number;
 
-      constructor(userName: string, age: number) {
-        this.userName = userName;
-        this.age = age;
-      }
+     constructor(userName: string, age: number) {
+       this.userName = userName;
+       this.age = age;
+     }
 
-      abstract display(): void;
-    }
+     abstract display(): void;
+   }
 
-    class Student extends User {
-      studentId: number;
+   class Student extends User {
+     studentId: number;
 
-      constructor(userName: string, age: number, studentId: number) {
-        super(userName, age);
-        this.studentId = studentId;
-      }
-      display(): void {
-        console.log(
-          `username: ${this.userName}, age: ${this.age}, id: ${this.studentId}`
-        );
-      }
-    }
+     constructor(userName: string, age: number, studentId: number) {
+       super(userName, age);
+       this.studentId = studentId;
+     }
+     display(): void {
+       console.log(
+         `username: ${this.userName}, age: ${this.age}, id: ${this.studentId}`
+       );
+     }
+   }
 
-    let student1 = new Student("keya", 31, 1302020015);
-    student1.display();
+   let student1 = new Student("keya", 31, 1302020015);
+   student1.display();
 
-    ```
+   ```
 
-    - **Encapsulation and access modifiers** - 4 key principles of Object Oriented Programming (OOP): Inheritance, Abstraction, Encapsulation, Polymorphism. Encapsulation helps us to manage the visibility of class members. 4 Access modifiers: public, private, protected, readonly
+   - **Encapsulation and access modifiers** - 4 key principles of Object Oriented Programming (OOP): Inheritance, Abstraction, Encapsulation, Polymorphism. Encapsulation helps us to manage the visibility of class members. 4 Access modifiers: public, private, protected, readonly
 
-    ![Access Modifiers](images/access-modifiers.png)
+   ![Access Modifiers](images/access-modifiers.png)
 
-    ```js
-      // public, private, protected, readonly
-      // setter and getter
-      class User {
-        readonly userName: string;
-        public age: number;
+   ```js
+     // public, private, protected, readonly
+     // setter and getter
+     class User {
+       readonly userName: string;
+       public age: number;
 
-        constructor(userName: string, age: number) {
-          this.userName = userName;
-          this.age = age;
-        }
+       constructor(userName: string, age: number) {
+         this.userName = userName;
+         this.age = age;
+       }
 
-        display(): void {
-          console.log(`username: ${this.userName}, age: ${this.age}`);
-        }
-      }
+       display(): void {
+         console.log(`username: ${this.userName}, age: ${this.age}`);
+       }
+     }
 
-      class Student extends User {
-        private studentId: number;
+     class Student extends User {
+       private studentId: number;
 
-        constructor(userName: string, age: number, studentId: number) {
-          super(userName, age);
-          this.studentId = studentId;
-        }
-        display(): void {
-          console.log(
-            `username: ${this.userName}, age: ${this.age}, id: ${this.studentId}`
-          );
-        }
+       constructor(userName: string, age: number, studentId: number) {
+         super(userName, age);
+         this.studentId = studentId;
+       }
+       display(): void {
+         console.log(
+           `username: ${this.userName}, age: ${this.age}, id: ${this.studentId}`
+         );
+       }
 
-        setStudentId(studentId: number): void {
-          this.studentId = studentId;
-        }
+       setStudentId(studentId: number): void {
+         this.studentId = studentId;
+       }
 
-        getStudentId(): number {
-          return this.studentId;
-        }
-      }
+       getStudentId(): number {
+         return this.studentId;
+       }
+     }
 
-      let student1 = new Student("keya", 31, 1302020015);
-      student1.setStudentId(1302020017);
-      console.log(student1.getStudentId());
-      // student1.display();
+     let student1 = new Student("keya", 31, 1302020015);
+     student1.setStudentId(1302020017);
+     console.log(student1.getStudentId());
+     // student1.display();
 
-      let user1 = new User("robi", 23);
-      console.log(user1.userName);
-      // user1.display();
-    ```
+     let user1 = new User("robi", 23);
+     console.log(user1.userName);
+     // user1.display();
+   ```
 
 ### Inheritance
 
@@ -714,14 +714,17 @@ console.log(teacher.subject); // Mathematics
 ### Explanation
 
 1. **Abstraction**:
+
    - The `Person` class is abstract and contains an abstract method `getDescription`.
    - This method must be implemented by any non-abstract subclass of `Person`.
 
 2. **Encapsulation**:
+
    - Private properties (`_name`, `_age`, `_grade`, `_subject`) are used to restrict direct access.
    - Getter methods (`get name()`, `get age()`, `get grade()`, `get subject()`) are provided to access these private properties.
 
 3. **Inheritance**:
+
    - The `Student` and `Teacher` classes inherit from the `Person` class.
    - They call the constructor of the parent class using `super(name, age)`.
 
@@ -733,79 +736,79 @@ This example demonstrates how you can use these OOP principles in TypeScript to 
 
 9. **Interface type**
 
-    ```js
-    // without interface
-    let users: {
-      id: number,
-      name: string,
-      age: number,
-    }[] = [];
+   ```js
+   // without interface
+   let users: {
+     id: number,
+     name: string,
+     age: number,
+   }[] = [];
 
-    let user1: {
-      id: number,
-      name: string,
-      age: number,
-    } = {
-      id: 1,
-      name: 'Mr. Potato',
-      age: 32,
-    };
+   let user1: {
+     id: number,
+     name: string,
+     age: number,
+   } = {
+     id: 1,
+     name: "Mr. Potato",
+     age: 32,
+   };
 
-    let user2: {
-      id: number,
-      name: string,
-      age: number,
-    } = { id: 2, name: 'Ms. Tomato', age: 21 };
+   let user2: {
+     id: number,
+     name: string,
+     age: number,
+   } = { id: 2, name: "Ms. Tomato", age: 21 };
 
-    users.push(user1);
-    users.push(user2);
+   users.push(user1);
+   users.push(user2);
 
-    const printUserInfo = (user: { id: number, name: string, age: number }) => {
-      console.log(`userid = ${user.id}, name = ${user.name}, age = ${user.age}`);
-    };
+   const printUserInfo = (user: { id: number, name: string, age: number }) => {
+     console.log(`userid = ${user.id}, name = ${user.name}, age = ${user.age}`);
+   };
 
-    users.forEach((user) => printUserInfo(user));
+   users.forEach((user) => printUserInfo(user));
 
-    // with interface
-    interface User {
-      id: number;
-      name: string;
-      age: number;
-    }
+   // with interface
+   interface User {
+     id: number;
+     name: string;
+     age: number;
+   }
 
-    let users: User[] = [];
+   let users: User[] = [];
 
-    let user1: User = { id: 1, name: 'Mr. Potato', age: 32 };
-    let user2: User = { id: 2, name: 'Ms. Tomato', age: 21 };
+   let user1: User = { id: 1, name: "Mr. Potato", age: 32 };
+   let user2: User = { id: 2, name: "Ms. Tomato", age: 21 };
 
-    users.push(user1);
-    users.push(user2);
+   users.push(user1);
+   users.push(user2);
 
-    const printUserInfo = (user: User) => {
-      console.log(`userid = ${user.id}, name = ${user.name}, age = ${user.age}`);
-    };
+   const printUserInfo = (user: User) => {
+     console.log(`userid = ${user.id}, name = ${user.name}, age = ${user.age}`);
+   };
 
-    users.forEach((user) => printUserInfo(user));
-    ```
+   users.forEach((user) => printUserInfo(user));
+   ```
 
-    ```js
-        // class implements interface
-        interface UserFormatter {
-          formatUser: () => string;
-        }
+   ```js
+       // class implements interface
+       interface UserFormatter {
+         formatUser: () => string;
+       }
 
-          export class User implements UserFormatter {
-            constructor(private fullName: string, private age: number) {}
+         export class User implements UserFormatter {
+           constructor(private fullName: string, private age: number) {}
 
-            formatUser = () => {
-              return `name: ${this.fullName}, age: ${this.age}`;
-            };
-          }
+           formatUser = () => {
+             return `name: ${this.fullName}, age: ${this.age}`;
+           };
+         }
 
-          let user = new User("Mr. Potato", 32);
-          console.log(user);
-          console.log(user.formatUser());
-      ```
+         let user = new User("Mr. Potato", 32);
+         console.log(user);
+         console.log(user.formatUser());
+   ```
 
 10. **Interface vs type**
 
@@ -849,8 +852,8 @@ This example demonstrates how you can use these OOP principles in TypeScript to 
 
     let s1: Student;
     s1 = {
-      name: 'anisul islam',
-      student_id: '1302',
+      name: "anisul islam",
+      student_id: "1302",
     };
     ```
 
@@ -877,7 +880,7 @@ This example demonstrates how you can use these OOP principles in TypeScript to 
       };
     }
 
-    const s1 = new Student('anisul islam', '1302020017');
+    const s1 = new Student("anisul islam", "1302020017");
     console.log(s1.printDetails());
     ```
 
@@ -916,7 +919,7 @@ Sure, let's explore functions in TypeScript with some code examples. TypeScript 
 
 ```typescript
 function add(a: number, b: number): number {
-    return a + b;
+  return a + b;
 }
 
 const result: number = add(5, 3); // 'result' will be 8
@@ -936,7 +939,7 @@ You can specify default values for function parameters:
 
 ```typescript
 function greet(name: string = "User"): string {
-    return `Hello, ${name}!`;
+  return `Hello, ${name}!`;
 }
 
 const message: string = greet(); // 'message' will be "Hello, User!"
@@ -950,7 +953,7 @@ Rest parameters allow you to pass an arbitrary number of arguments as an array:
 
 ```typescript
 function sum(...numbers: number[]): number {
-    return numbers.reduce((total, num) => total + num, 0);
+  return numbers.reduce((total, num) => total + num, 0);
 }
 
 const total: number = sum(1, 2, 3, 4, 5); // 'total' will be 15
@@ -963,15 +966,19 @@ The `...numbers` syntax collects all arguments passed to the `sum` function into
 You can pass functions as parameters to other functions:
 
 ```typescript
-function calculate(a: number, b: number, operation: (x: number, y: number) => number): number {
-    return operation(a, b);
+function calculate(
+  a: number,
+  b: number,
+  operation: (x: number, y: number) => number
+): number {
+  return operation(a, b);
 }
 
 const addition = (x: number, y: number) => x + y;
 const subtraction = (x: number, y: number) => x - y;
 
-const result1: number = calculate(5, 3, addition);      // 'result1' will be 8
-const result2: number = calculate(5, 3, subtraction);   // 'result2' will be 2
+const result1: number = calculate(5, 3, addition); // 'result1' will be 8
+const result2: number = calculate(5, 3, subtraction); // 'result2' will be 2
 ```
 
 Here, the `calculate` function accepts an `operation` parameter, which is a function that takes two numbers and returns a number.
@@ -993,7 +1000,7 @@ const square = (x: number): number => x * x;
   let userInfo3: (name: string) => string;
 
   userInfo1 = () => {
-    console.log('Anisul Islam is 32 years old');
+    console.log("Anisul Islam is 32 years old");
   };
 
   userInfo2 = (name: string) => {
@@ -1005,29 +1012,28 @@ const square = (x: number): number => x * x;
   };
 
   userInfo1();
-  userInfo2('Anisul Islam');
-  console.log(userInfo3('Anisul Islam'));
+  userInfo2("Anisul Islam");
+  console.log(userInfo3("Anisul Islam"));
   ```
 
 - function signature in interface
 
 ```ts
-   interface IUserFormatter{
-    formatUser: () => string
-  }
+interface IUserFormatter {
+  formatUser: () => string;
+}
 
-  class User implements IUserFormatter{
-    constructor(private fullName: string, private age: number){}
-    formatUser = () => {
-      return `name: ${this.fullName}, age: ${this.age}`
-    }
-  }
+class User implements IUserFormatter {
+  constructor(private fullName: string, private age: number) {}
+  formatUser = () => {
+    return `name: ${this.fullName}, age: ${this.age}`;
+  };
+}
 ```
 
 ## 2. Intermediate Typescript Topics
 
 ### 2.1 Creating types from types
-
 
 Generics in TypeScript provide a way to create reusable, type-safe functions, classes, and interfaces that work with a variety of data types. They allow you to write code that can operate on values of different types while preserving type information. Generics are denoted using angle brackets (`<>`) and can be used with functions, classes, and interfaces.
 
@@ -1039,12 +1045,12 @@ A generic function can accept arguments of any type while maintaining type safet
 
 ```typescript
 function identity<T>(arg: T): T {
-    return arg;
+  return arg;
 }
 
 // Usage
-const result1: number = identity(42);       // T is inferred as 'number'
-const result2: string = identity("hello");  // T is inferred as 'string'
+const result1: number = identity(42); // T is inferred as 'number'
+const result2: string = identity("hello"); // T is inferred as 'string'
 ```
 
 In this example, `T` is a type parameter that represents the type of the argument `arg`. The type of `T` is inferred based on the actual argument passed to the function.
@@ -1055,20 +1061,20 @@ You can create generic classes that work with different types. Here's an example
 
 ```typescript
 class Box<T> {
-    private value: T;
+  private value: T;
 
-    constructor(value: T) {
-        this.value = value;
-    }
+  constructor(value: T) {
+    this.value = value;
+  }
 
-    getValue(): T {
-        return this.value;
-    }
+  getValue(): T {
+    return this.value;
+  }
 }
 
 // Usage
-const numberBox = new Box(42);          // 'T' is inferred as 'number'
-const stringBox = new Box("hello");     // 'T' is inferred as 'string'
+const numberBox = new Box(42); // 'T' is inferred as 'number'
+const stringBox = new Box("hello"); // 'T' is inferred as 'string'
 
 const numValue: number = numberBox.getValue();
 const strValue: string = stringBox.getValue();
@@ -1082,8 +1088,8 @@ You can also create generic interfaces that describe the shape of objects with d
 
 ```typescript
 interface Pair<T, U> {
-    first: T;
-    second: U;
+  first: T;
+  second: U;
 }
 
 const pair: Pair<number, string> = { first: 42, second: "hello" };
@@ -1100,13 +1106,13 @@ Generics in TypeScript provide flexibility and type safety, allowing you to writ
 // generic allows us to create own types
 
 // problem without generic
-function printUserInfo(userId: string | number | null){
-  console.log(`user id: ${userId}`)
+function printUserInfo(userId: string | number | null) {
+  console.log(`user id: ${userId}`);
 }
 printUserInfo("101");
 printUserInfo(101);
 printUserInfo(null);
-printUserInfo({id: 101});
+printUserInfo({ id: 101 });
 printUserInfo(true);
 
 const displayValue1 = (x) => {
@@ -1128,29 +1134,29 @@ const addBefore = <T1>(numbers: T1[], x: T1) => {
 let numbers = [20, 30, 40];
 console.log(addBefore(numbers, 10));
 
-let countries = ['bangladesh', 'pakistan', 'India'];
-console.log(addBefore(countries, 'Australia'));
+let countries = ["bangladesh", "pakistan", "India"];
+console.log(addBefore(countries, "Australia"));
 
 // Another example
 const printUserInfo = <X, Y>(userId: X, userAge: Y) => {
   console.log(`ID : ${userId}, Age: ${userAge}`);
 };
-printUserInfo('101', 32);
+printUserInfo("101", 32);
 printUserInfo(101, 32);
-printUserInfo(101, '32');
-printUserInfo('101', '32');
+printUserInfo(101, "32");
+printUserInfo("101", "32");
 ```
 
-#### keyof type Example 
+#### keyof type Example
 
 The `keyof` keyword in TypeScript is used to create a union type of all the keys of an object type. It allows you to work with object keys in a type-safe way. Here's an example of how to use `keyof` in TypeScript:
 
 ```typescript
 // Define an object type
 type Person = {
-    name: string;
-    age: number;
-    address: string;
+  name: string;
+  age: number;
+  address: string;
 };
 
 // Use 'keyof' to create a union type of all keys in the 'Person' type
@@ -1158,14 +1164,14 @@ type PersonKeys = keyof Person;
 
 // Usage example
 const person: Person = {
-    name: "Alice",
-    age: 30,
-    address: "123 Main St",
+  name: "Alice",
+  age: 30,
+  address: "123 Main St",
 };
 
 // Accessing properties using 'keyof' and dot notation
 const nameKey: PersonKeys = "name"; // Valid
-const ageKey: PersonKeys = "age";   // Valid
+const ageKey: PersonKeys = "age"; // Valid
 const addressKey: PersonKeys = "address"; // Valid
 
 // The following will result in a compile error:
@@ -1218,13 +1224,13 @@ Here's an example of narrowing in TypeScript:
 
 ```typescript
 function printLength(input: string | number) {
-    if (typeof input === "string") {
-        // Inside this block, 'input' is narrowed to type 'string'
-        console.log(`Length of string: ${input.length}`);
-    } else {
-        // Inside this block, 'input' is narrowed to type 'number'
-        console.log(`Value of number: ${input}`);
-    }
+  if (typeof input === "string") {
+    // Inside this block, 'input' is narrowed to type 'string'
+    console.log(`Length of string: ${input.length}`);
+  } else {
+    // Inside this block, 'input' is narrowed to type 'number'
+    console.log(`Value of number: ${input}`);
+  }
 }
 
 printLength("Hello, TypeScript!"); // Output: "Length of string: 18"
@@ -1253,10 +1259,10 @@ TypeScript's control flow analysis is especially useful when working with union 
 // type guards with typeof
 // typeof variable === string/number/boolean/symbol/undefined/object/function
 const printAllTodos = (todos: string[] | null) => {
-  if (typeof todos === 'object') {
+  if (typeof todos === "object") {
     todos.map((todo) => console.log(todo));
   } else {
-    console.log('todos are empty');
+    console.log("todos are empty");
   }
 };
 ```
@@ -1269,12 +1275,12 @@ const printAllTodos = (todos: string[] | null) => {
   if (todos) {
     todos.map((todo) => console.log(todo));
   } else {
-    console.log('todos are empty');
+    console.log("todos are empty");
   }
 };
 
 const todos1 = null;
-const todos2 = ['todo1', 'todo2', 'todo3'];
+const todos2 = ["todo1", "todo2", "todo3"];
 printAllTodos(todos1);
 printAllTodos(todos2);
 ```
@@ -1355,24 +1361,24 @@ addButton?.addEventListener("click", () => {
 ```
 
 ```ts
-const form = document.querySelector('.user-form') as HTMLFormElement;
+const form = document.querySelector(".user-form") as HTMLFormElement;
 console.log(form);
 
-const userNameInput = document.querySelector('#username') as HTMLInputElement;
+const userNameInput = document.querySelector("#username") as HTMLInputElement;
 console.log(userNameInput);
 
-const userEmailInput = document.querySelector('#useremail') as HTMLInputElement;
+const userEmailInput = document.querySelector("#useremail") as HTMLInputElement;
 console.log(userEmailInput);
 
 const userCountrySelect = document.querySelector(
-  '#country'
+  "#country"
 ) as HTMLSelectElement;
 console.log(userCountrySelect);
 
-const userFeedback = document.querySelector('#feedback') as HTMLTextAreaElement;
+const userFeedback = document.querySelector("#feedback") as HTMLTextAreaElement;
 console.log(userFeedback);
 
-form.addEventListener('submit', (e: Event) => {
+form.addEventListener("submit", (e: Event) => {
   e.preventDefault();
   let userData = {
     userName: userNameInput.value,
